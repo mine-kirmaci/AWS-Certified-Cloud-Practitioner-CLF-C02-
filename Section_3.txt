@@ -1,0 +1,125 @@
+
+AWS Certified Cloud Practitioner (CLF-C02)
+Section 3: Compute Services - Exam Notes
+
+------------------------------------------------------------
+1. Amazon EC2 (Elastic Compute Cloud)
+------------------------------------------------------------
+- EC2, AWS’in sanal sunucu (IaaS) hizmetidir.
+- Kullanım senaryosu: Web sunucuları, uygulama sunucuları, veritabanı barındırma.
+- Fiyatlandırma modelleri:
+  * On-Demand: Kullandıkça öde, esnek ama pahalı.
+  * Reserved Instances: 1 veya 3 yıllık taahhüt, %72’ye kadar indirim.
+  * Spot Instances: Boş kapasiteyi düşük fiyatla kullan, aniden AWS tarafından kesilebilir.
+  * Savings Plans: Belirli süre için compute taahhütü ile indirim.
+- Storage Seçenekleri:
+  * EBS (Elastic Block Store): EC2 diskleri için block storage.
+  * Instance Store: Geçici, kalıcı olmayan disk.
+  * S3: Object storage, EC2 disk değildir!
+
+------------------------------------------------------------
+2. Elastic Load Balancing (ELB)
+------------------------------------------------------------
+- Gelen trafiği birden fazla EC2 instance’a dağıtır.
+- Türleri:
+  * Application Load Balancer (ALB): HTTP/HTTPS için Layer 7 routing.
+  * Network Load Balancer (NLB): Yüksek performans, TCP/UDP için Layer 4.
+  * Gateway Load Balancer (GWLB): Ağ güvenlik cihazları için.
+
+------------------------------------------------------------
+3. Auto Scaling
+------------------------------------------------------------
+- Yük arttığında yeni EC2 ekler, azaldığında kaldırır.
+- Auto Scaling Group (ASG): Belirlenen min/max EC2 sayısını korur.
+- Ölçekleme türleri:
+  * Dynamic scaling: CPU, bellek vb. metriklere göre.
+  * Scheduled scaling: Belirli saatlerde.
+
+------------------------------------------------------------
+4. AWS Lambda (Serverless Compute)
+------------------------------------------------------------
+- Sunucu yönetimi yok, event-driven çalışır.
+- Kod sadece çalıştığında ücretlendirilir (mili-saniye bazlı).
+- Kullanım örnekleri:
+  * S3 event tetiklemesi (dosya yüklenince çalış).
+  * API Gateway entegrasyonu.
+  * DynamoDB trigger.
+- Dil desteği: Python, Node.js, Java, Go vb.
+- Avantaj: Yüksek ölçeklenebilirlik, düşük operasyon maliyeti.
+
+------------------------------------------------------------
+5. Container Services (ECS, EKS, Fargate)
+------------------------------------------------------------
+- ECS (Elastic Container Service): AWS’in container orchestrator’ı.
+- EKS (Elastic Kubernetes Service): Managed Kubernetes.
+- Launch Types:
+  * EC2: Container’lar kendi EC2 cluster’ınızda çalışır.
+  * Fargate: AWS altyapıyı yönetir, siz sadece container’ı çalıştırırsınız.
+- Sınav ipucu: ECS Fargate, underlying node’ları gizler.
+
+------------------------------------------------------------
+6. AWS Elastic Beanstalk
+------------------------------------------------------------
+- PaaS (Platform as a Service).
+- Geliştirici sadece kodu yükler, AWS EC2, ELB, Auto Scaling’i otomatik yönetir.
+- Desteklenen diller: Java, .NET, Python, Node.js, PHP, Ruby.
+- Kullanım: Hızlı prototip, küçük-orta ölçekli uygulama.
+
+------------------------------------------------------------
+7. Amazon Lightsail
+------------------------------------------------------------
+- Basit VPS (sanal özel sunucu) çözümüdür.
+- Sabit aylık ücret, küçük projeler için uygun.
+- WordPress, basit web app barındırma.
+
+------------------------------------------------------------
+8. AWS Batch
+------------------------------------------------------------
+- Büyük ölçekli batch işlerini (örn: bilimsel hesaplama, analiz) çalıştırır.
+- Compute kaynaklarını otomatik yönetir.
+
+------------------------------------------------------------
+9. Elastic File System (EFS)
+------------------------------------------------------------
+- Birden fazla EC2 instance arasında paylaşılan dosya sistemi.
+- NFS tabanlı, otomatik büyüyen depolama.
+
+------------------------------------------------------------
+10. Önemli Sınav İpuçları
+------------------------------------------------------------
+- EC2 disk için doğru cevap **EBS**, S3 değildir.
+- Spot Instances = en ucuz ama kesilebilir.
+- Lambda = serverless, event-driven compute.
+- ECS Fargate = node yönetimi AWS tarafından yapılır.
+- Lightsail = basit VPS çözümü.
+- Batch = büyük toplu işler için compute.
+- Beanstalk = PaaS, altyapıyı AWS yönetir.
+
+------------------------------------------------------------
+Sınav Stratejisi:
+- EC2 fiyatlandırma modellerini çok iyi bil.
+- Compute servislerini doğru senaryoya eşleştirebil.
+- Serverless (Lambda) ile EC2 arasındaki farkı bil.
+- Container servislerini (ECS/EKS, Fargate) ayırt et.
+- Lightsail ve Batch gibi daha az sorulan servisleri karıştırma.
+------------------------------------------------------------
+4-d
+Which of the following is NOT a benefit of AWS Cloud?
+a) Elasticity
+b) On-demand capacity
+c) Global reach
+d) Owning physical servers
+------------------------------------------------------------
+12-b
+Which service provides block-level storage volumes for Amazon EC2?
+a) Amazon S3
+b) Amazon EBS
+c) Amazon EFS
+d) AWS Storage Gateway
+------------------------------------------------------------
+14-c
+Which compute service is designed for simplified VPS hosting with a fixed monthly cost?
+a) Amazon EC2
+b) AWS Lambda
+c) Amazon Lightsail
+d) AWS Batch

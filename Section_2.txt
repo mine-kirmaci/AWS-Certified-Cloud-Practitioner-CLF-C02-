@@ -1,0 +1,77 @@
+AWS Certified Cloud Practitioner (CLF-C02)
+Section 2: AWS Cloud Concepts & Global Infrastructure - Exam Notes
+
+------------------------------------------------------------
+1. AWS Global Infrastructure
+------------------------------------------------------------
+- Region:
+  * Coğrafi konum (örn: eu-central-1 Frankfurt).
+  * Birden fazla Availability Zone içerir.
+  * Seçim kriterleri: Latency, Compliance, Cost.
+- Availability Zone (AZ):
+  * Region içindeki ayrı fiziksel veri merkezleri.
+  * Yedekli güç, ağ ve bağlantıya sahiptir.
+  * Örn: us-east-1a, us-east-1b.
+- Edge Location:
+  * CloudFront gibi CDN servislerinin içerik dağıtım noktalarıdır.
+  * Uygulama deploy edilmez, sadece içerik cache ve dağıtımı yapılır.
+
+Not:
+- Uygulama deploy → Region
+- Yüksek erişilebilirlik → Multiple AZs
+- CDN / cache → Edge Location
+
+------------------------------------------------------------
+2. Shared Responsibility Model
+------------------------------------------------------------
+- AWS sorumlulukları ("Security OF the Cloud"):
+  * Fiziksel veri merkezleri güvenliği.
+  * Donanım ve ağ altyapısı.
+  * Hypervisor bakımı ve altyapı güncellemeleri.
+- Müşteri sorumlulukları ("Security IN the Cloud"):
+  * IAM kullanıcı/rol yönetimi.
+  * EC2 guest OS güncellemeleri.
+  * Uygulama güvenliği.
+  * Veri şifreleme.
+  * Network ACL & Security Group ayarları.
+
+Hatırlatma:
+- "OF the cloud" → AWS
+- "IN the cloud" → Customer
+
+------------------------------------------------------------
+3. AWS Service Categories
+------------------------------------------------------------
+- Compute: EC2, Lambda, ECS, EKS
+- Storage: S3, EBS, EFS
+- Networking & Content Delivery: VPC, Route 53, CloudFront
+- Database: RDS, DynamoDB, Aurora
+- Security & Identity: IAM, KMS, Cognito
+
+Önemli:
+- S3 → Storage
+- Lambda → Compute
+- CloudFront → Networking / CDN
+
+------------------------------------------------------------
+4. Benefits of AWS Cloud
+------------------------------------------------------------
+- On-demand capacity – İhtiyaç olduğunda kaynak oluşturma.
+- Elasticity & Scalability – Talebe göre büyüme/küçülme.
+- Global reach – Dünya genelinde erişim.
+- Cost optimization – Kullandıkça öde.
+- Agility – Dakikalar içinde kaynak kurma.
+
+Not: "Owning and maintaining physical servers" bir avantaj değildir.
+
+------------------------------------------------------------
+5. Önemli Sınav İpuçları
+------------------------------------------------------------
+- Region → Coğrafi lokasyon, uygulama deploy yeri.
+- AZ → Region içindeki bağımsız veri merkezleri.
+- Edge Location → CDN / içerik dağıtımı (CloudFront).
+- EC2 OS yamaları = Müşteri sorumluluğu.
+- Data center güvenliği = AWS sorumluluğu.
+- S3 = Storage, Lambda = Compute, CloudFront = Networking/CDN.
+
+
