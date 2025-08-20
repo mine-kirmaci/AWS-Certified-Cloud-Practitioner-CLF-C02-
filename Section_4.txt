@@ -1,0 +1,87 @@
+AWS Certified Cloud Practitioner (CLF-C02)
+Section 4: Security & Compliance - Exam Notes
+
+------------------------------------------------------------
+1. Identity and Access Management (IAM)
+------------------------------------------------------------
+IAM: AWS servislerine kimlerin erişebileceğini ve hangi yetkilere sahip olduğunu yönetir.
+
+Bileşenler:
+- IAM User: Bireysel kullanıcı hesabı (örn: developer1).
+- IAM Group: Kullanıcı grupları, toplu policy atanır.
+- IAM Role: AWS servisleri veya uygulamalar için geçici yetkilendirme.
+- IAM Policy: JSON formatında izin setleri (Allow/Deny).
+
+🔑 Sınav İpuçları:
+- Root kullanıcıyla günlük işlem yapılmaz.
+- Least privilege (en az yetki) prensibi uygulanır.
+- MFA (Multi-Factor Authentication) kritik güvenlik önlemidir.
+
+------------------------------------------------------------
+2. AWS Organizations & Service Control Policies (SCP)
+------------------------------------------------------------
+- AWS Organizations: Çoklu AWS hesaplarını merkezden yönetme.
+- OU (Organizational Unit) ile hesapları gruplandırabilirsin.
+- SCP (Service Control Policy): Hesapların hangi servisleri kullanabileceğini sınırlar.
+
+🔑 Sınav İpuçları:
+- SCP, IAM Policy’den daha üst seviyede kontrol sağlar.
+- Organizasyon root hesabı, tüm hesapların sahibi gibidir.
+
+------------------------------------------------------------
+3. AWS Artifact
+------------------------------------------------------------
+- AWS Artifact: Güvenlik ve uyumluluk raporlarını indirip görüntülemenizi sağlar.
+- Kullanım: ISO, SOC raporları, PCI DSS uyumluluk belgeleri.
+- Müşteriler compliance ihtiyaçları için kullanır.
+
+------------------------------------------------------------
+4. AWS Security Services
+------------------------------------------------------------
+- AWS Shield: DDoS koruması (Standard – ücretsiz, Advanced – ücretli).
+- AWS WAF (Web Application Firewall): SQL Injection, XSS gibi saldırılara karşı koruma.
+- AWS GuardDuty: Tehdit tespit servisi (AI tabanlı, anomali algılar).
+- AWS Inspector: EC2 ve container güvenlik açıklarını tarar.
+- AWS Macie: S3 içindeki hassas verileri (örn: kredi kartı numarası) bulur.
+- KMS (Key Management Service): Şifreleme anahtarlarını yönetir.
+- CloudHSM: Donanım tabanlı şifreleme çözümü.
+- AWS Certificate Manager (ACM): SSL/TLS sertifikalarını yönetir.
+
+------------------------------------------------------------
+5. Monitoring & Logging
+------------------------------------------------------------
+- CloudWatch: Metrik ve log takibi (örn: CPU, bellek, hata logları).
+- CloudTrail: Tüm AWS API çağrılarını kaydeder (audit log).
+- AWS Config: Kaynakların uyumluluğunu ve değişiklik geçmişini izler.
+
+🔑 Sınav İpuçları:
+- CloudTrail → Kim, ne zaman, hangi aksiyonu yaptı?
+- CloudWatch → Sistem performansı (CPU, RAM, disk).
+- AWS Config → Uyumluluk ve kaynak geçmişi.
+
+------------------------------------------------------------
+6. Shared Responsibility Model (Security Perspective)
+------------------------------------------------------------
+- AWS’in sorumlulukları (Security OF the Cloud):
+  * Fiziksel güvenlik, veri merkezi, hypervisor.
+- Müşteri sorumlulukları (Security IN the Cloud):
+  * IAM, uygulama güvenliği, veri şifreleme.
+
+------------------------------------------------------------
+7. Önemli Sınav İpuçları (Section 4)
+------------------------------------------------------------
+- Root kullanıcıyla işlem yapma → IAM User/Role kullan.
+- MFA → ek güvenlik katmanı.
+- SCP → tüm hesaplara merkezi kısıtlama.
+- CloudTrail → audit/log.
+- GuardDuty → tehdit algılama.
+- Shield/WAF → saldırı koruması.
+- KMS/CloudHSM → şifreleme yönetimi.
+
+------------------------------------------------------------
+📌 Sınav Stratejisi
+------------------------------------------------------------
+- IAM User / Role / Policy ayrımını mutlaka öğren.
+- Hangi güvenlik servisi hangi iş için kullanılır (Shield = DDoS, GuardDuty = anomaly detection, WAF = web saldırıları).
+- Monitoring servislerini karıştırma (CloudWatch ≠ CloudTrail ≠ Config).
+- Shared Responsibility modelini özellikle güvenlik bakış açısından bil.
