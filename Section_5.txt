@@ -1,0 +1,117 @@
+AWS Certified Cloud Practitioner (CLF-C02)
+Chapter 5: Content Delivery and Networking – Exam Notes
+1. Amazon VPC (Virtual Private Cloud)
+
+AWS üzerinde kendi sanal özel ağını oluşturmanı sağlar.
+
+VPC bileşenleri:
+
+Subnets: Ağ bölmeleri (Public / Private).
+
+Internet Gateway (IGW): VPC’yi internete bağlar.
+
+NAT Gateway: Private subnet → internet çıkışı (inbound bağlantı yok).
+
+Route Tables: Trafik yönlendirme kuralları.
+
+Security Groups (SG): EC2 instance seviyesinde güvenlik (stateful).
+
+Network ACL (NACL): Subnet seviyesinde güvenlik (stateless).
+
+📌 Sınav ipuçları:
+
+SG = stateful, instance seviyesinde.
+
+NACL = stateless, subnet seviyesinde.
+
+IGW public subnet için, NAT Gateway private subnet için kullanılır.
+
+2. Amazon Route 53 (DNS & Routing)
+
+AWS’in DNS ve domain kayıt servisi.
+
+Kullanım alanları:
+
+Domain Registration: Alan adı kaydı.
+
+DNS Resolution: İsim → IP çözümleme.
+
+Routing Policies:
+
+Simple Routing → Tek kaynak.
+
+Weighted Routing → %’lere göre dağıtım (ör. %70 / %30).
+
+Latency-based Routing → En düşük gecikmeye sahip region’a yönlendirme.
+
+Failover Routing → Yedek kaynağa otomatik geçiş.
+
+Geolocation Routing → Kullanıcı lokasyonuna göre yönlendirme.
+
+Geoproximity Routing → Region’lara coğrafi yakınlığa göre yönlendirme.
+
+📌 Sınav ipucu: Route 53 sadece DNS değil → routing + health check de yapar.
+
+3. Elastic Load Balancing (ELB)
+
+Trafiği birden fazla EC2, container veya Lambda’ya dağıtır.
+
+Türleri:
+
+Application Load Balancer (ALB): Layer 7 (HTTP/HTTPS). Web trafiği için.
+
+Network Load Balancer (NLB): Layer 4 (TCP/UDP). Yüksek performans, düşük latency.
+
+Gateway Load Balancer (GWLB): Güvenlik cihazları (firewall, IDS/IPS) için.
+
+📌 Sınav ipuçları:
+
+HTTP/HTTPS → ALB
+
+TCP/UDP yüksek performans → NLB
+
+Güvenlik cihazları → GWLB
+
+4. Amazon CloudFront (CDN)
+
+AWS’in Content Delivery Network (CDN) hizmeti.
+
+Çalışma mantığı:
+
+Kaynak: S3 bucket, EC2, ELB olabilir.
+
+İçerik, Edge Locations üzerinden son kullanıcıya en yakın noktadan cache edilerek sunulur.
+
+Avantajları:
+
+Low latency (düşük gecikme).
+
+High transfer speed.
+
+AWS Shield & WAF ile entegre güvenlik.
+
+📌 Sınav ipucu: CloudFront = Edge Locations + CDN
+
+5. Direct Connect & VPN
+
+VPN (Virtual Private Network): On-premises ↔ AWS bağlantısı, internet üzerinden. Daha ucuz, hızlı kurulum ama internet hızına bağımlı.
+
+Direct Connect: On-premises ↔ AWS arasında özel fiber hat. Daha güvenli, düşük latency, yüksek bant genişliği ama daha pahalı.
+
+📌 Sınav ipucu:
+
+Hızlı, ucuz → VPN
+
+Yüksek performans, güvenli fiber → Direct Connect
+
+🎯 Önemli Sınav Stratejisi – Chapter 5
+
+VPC: SG vs NACL farklarını çok iyi bil.
+
+Route 53: Routing policy türlerini ayırt et. “Cost-based” yoktur!
+
+ELB: ALB vs NLB ayrımını mutlaka bil.
+
+CloudFront: CDN + Edge Locations cevabı.
+
+Direct Connect vs VPN: Özel fiber vs internet üzerinden farkını bil.
